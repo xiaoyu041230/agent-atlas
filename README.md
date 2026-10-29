@@ -62,9 +62,9 @@ Planned: authenticated accounts, per-user bookmarks, database migrations, deploy
 
 Catalog data: [ashishpatel26/500-AI-Agents-Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects). The bundled source snapshot is retained for reproducibility, along with its MIT license in `data/UPSTREAM-LICENSE`. Linked projects retain their own licenses. Agent Atlas application code is a separate implementation; the catalog and linked agents are not original work by its developer.
 
-## Publish to your GitHub
+## GitHub repository
 
-Create an empty repository called `agent-atlas` in your account, then from this directory:
+Published at https://github.com/xiaoyu041230/agent-atlas. To publish your own copy, create an empty repository and run:
 
 ```sh
 git init -b main
@@ -74,4 +74,4 @@ git remote add origin https://github.com/YOUR_USERNAME/agent-atlas.git
 git push -u origin main
 ```
 
-Never commit `.env`, database files, or API keys. `.gitignore` excludes local state. No GitHub remote has been configured by this scaffold.
+Never commit `.env`, database files, or API keys. `.gitignore` excludes local state. The upstream catalog is credited above; application development is tracked in this repository.
