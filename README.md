@@ -75,3 +75,12 @@ git push -u origin main
 ```
 
 Never commit `.env`, database files, or API keys. `.gitignore` excludes local state. The upstream catalog is credited above; application development is tracked in this repository.
+
+
+## Deploy the full application
+
+[Deploy to Render](https://render.com/deploy?repo=https://github.com/xiaoyu041230/agent-atlas)
+
+The `render.yaml` Blueprint selects a free Docker web service. The multi-stage Dockerfile builds React and serves its assets from FastAPI, so `/api` works on the same origin with no development proxy. Set up the Blueprint in your own Render account and verify the displayed plan before deployment.
+
+The catalog database is recreated from the bundled snapshot on startup. This demo uses ephemeral SQLite storage and has no user-owned writes. Do not use this storage setup for future accounts or bookmarks; use persistent PostgreSQL for those features. Free hosting can have cold starts. The Blueprint alone does not mean a production deployment has completed.

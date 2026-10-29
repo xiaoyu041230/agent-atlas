@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: agent-atlas
+    runtime: docker
+    plan: free
+    repo: https://github.com/xiaoyu041230/agent-atlas
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./atlas.db

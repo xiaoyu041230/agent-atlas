@@ -62,3 +62,11 @@ def projects(q: str = Query("", max_length=200), industry: str = "", framework: 
         order = (Project.name.asc(), Project.id.asc()) if sort == "name" else (Project.id.desc(),)
         rows = session.scalars(stmt.order_by(*order).offset((page-1)*page_size).limit(page_size))
         return {"items": [{key: getattr(p, key) for key in ("id", "name", "description", "industry", "framework", "url")} for p in rows], "total": total, "page": page, "page_size": page_size}
+
+
+# Registered last so API routes take precedence over static asset routing.
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
+frontend_dist = Path(__file__).resolve().parents[1] / "frontend" / "dist"
+if frontend_dist.is_dir():
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
